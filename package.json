@@ -1,0 +1,19 @@
+{
+  "name": "pdfgen",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "node ./node_modules/puppeteer-core/install.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chrome-aws-lambda": "^9.1.0",
+    "puppeteer-core": "^9.1.0"
+  },
+  "devDependencies": {
+    "@vercel/node": "^2.9.12"
+  }
+}
