@@ -15,7 +15,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   });
   const page = await browser.newPage();
   await page.setContent(req.body.content, {
-    waitUntil: "domcontentloaded",
+    waitUntil: "networkidle0",
   });
   await page.emulateMediaType("print");
   const pdf = await page.pdf({ preferCSSPageSize: true });
