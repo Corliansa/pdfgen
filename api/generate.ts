@@ -17,8 +17,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   await page.setContent(req.body.content, {
     waitUntil: "domcontentloaded",
   });
-  await page.emulateMediaType("screen");
-  const pdf = await page.pdf();
+  await page.emulateMediaType("print");
+  const pdf = await page.pdf({ preferCSSPageSize: true });
   await browser.close();
 
   res.setHeader("Content-Type", "application/pdf");
