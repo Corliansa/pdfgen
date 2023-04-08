@@ -3,7 +3,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 
 export default async function (req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST" || !req.body?.content) {
-    return res.status(400).send("Invalid request");
+    return res.status(400).send({ error: "Invalid request" });
   }
 
   const browser = await chromium.puppeteer.launch({
