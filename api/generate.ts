@@ -1,5 +1,6 @@
 import chromium from "chrome-aws-lambda";
 import type { VercelRequest, VercelResponse } from "@vercel/node";
+import styled from "../src/styled";
 
 export default async function (req: VercelRequest, res: VercelResponse) {
   if (req.method !== "POST" || !req.body?.data || !req.body?.style) {
@@ -22,7 +23,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       <title>${req.body?.title ?? "Project"}</title>
       ${
         req.body?.styled === "true"
-          ? `<link rel="stylesheet" href="/styled.min.css" />`
+          ? `<style>${styled}</style>`
           : `<link rel="stylesheet" href="https://unpkg.com/tailwindcss@3.3.1/src/css/preflight.css" />`
       }
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.css" integrity="sha384-ko6T2DjISesD0S+wOIeHKMyKsHvWpdQ1s/aiaQMbL+TIXx3jg6uyf9hlv3WWfwYv" crossorigin="anonymous" />
