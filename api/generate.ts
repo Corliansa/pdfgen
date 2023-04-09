@@ -21,9 +21,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <title>${req.body?.title ?? "Project"}</title>
       ${
-        !req.body?.styled
-          ? `<link rel="stylesheet" href="https://unpkg.com/tailwindcss@3.3.1/src/css/preflight.css" />`
-          : `<link rel="stylesheet" href="/styled.min.css" />`
+        req.body?.styled === "true"
+          ? `<link rel="stylesheet" href="/styled.min.css" />`
+          : `<link rel="stylesheet" href="https://unpkg.com/tailwindcss@3.3.1/src/css/preflight.css" />`
       }
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.css" integrity="sha384-ko6T2DjISesD0S+wOIeHKMyKsHvWpdQ1s/aiaQMbL+TIXx3jg6uyf9hlv3WWfwYv" crossorigin="anonymous" />
       <style>
