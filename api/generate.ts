@@ -19,13 +19,16 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   });
   await page.evaluateHandle("document.fonts.ready");
   await page.emulateMediaType("print");
-  const pdf = await page.pdf({ preferCSSPageSize: true });
+  const pdf = await page.pdf({
+    preferCSSPageSize: true,
+    printBackground: true,
+  });
   await browser.close();
 
   res.setHeader("Content-Type", "application/pdf");
   res.setHeader(
     "Content-Disposition",
-    `attachment; filename=${req.body?.title ?? "Resume"}.pdf`
+    `attachment; filename=${req.body?.title ?? "Project"}.pdf`
   );
   return res.send(pdf);
 }
