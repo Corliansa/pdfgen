@@ -20,8 +20,8 @@
   ],
   "rewrites": [
     {
-      "source": "/_next/static/(.*)",
-      "destination": "https://resumize.pro/_next/static/$1"
+      "source": "/(.*)",
+      "destination": "/"
     }
   ]
 }
