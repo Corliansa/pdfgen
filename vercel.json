@@ -1,4 +1,5 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
   "regions": ["fra1"],
   "headers": [
     {
@@ -15,6 +16,12 @@
           "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version"
         }
       ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/_next/static/(.*)",
+      "destination": "https://resumize.pro/_next/static/$1"
     }
   ]
 }
