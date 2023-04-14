@@ -1,10 +1,11 @@
 {
-  "name": "pdfgen",
+  "name": "@resumizer/pdfgen",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "postinstall": "node ./node_modules/puppeteer-core/install.js"
+    "dev": "yarn start",
+    "start": "vercel dev --listen 3001",
+    "postinstall": "./install.sh"
   },
   "keywords": [],
   "author": "",
@@ -14,7 +15,8 @@
     "puppeteer-core": "^9.1.0"
   },
   "devDependencies": {
-    "@vercel/node": "^2.9.12"
+    "@vercel/node": "^2.9.12",
+    "vercel": "^28.18.5"
   },
   "engines": {
     "node": "14.x"
