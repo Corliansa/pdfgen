@@ -3,7 +3,7 @@ import type { VercelRequest, VercelResponse } from "@vercel/node";
 import styled from "../src/styled";
 
 export default async function (req: VercelRequest, res: VercelResponse) {
-  if (req.method !== "POST" || !req.body?.data || !req.body?.style) {
+  if (req.method !== "POST" || !req.body?.data) {
     return res.status(400).send({ error: "Invalid request" });
   }
 
@@ -30,7 +30,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       <link href='https://fonts.googleapis.com/css?family=Noto Color Emoji' rel='stylesheet' />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.css" integrity="sha384-ko6T2DjISesD0S+wOIeHKMyKsHvWpdQ1s/aiaQMbL+TIXx3jg6uyf9hlv3WWfwYv" crossorigin="anonymous" />
       <style>
-        ${req.body?.style}
+        ${req.body?.style ?? ""}
       </style>
     </head>
     <body>
